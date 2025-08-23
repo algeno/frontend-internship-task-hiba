@@ -1,14 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
+//generate two letterfrom the name to use when the image is not available.
+//take a name as a par, remove extra spaces , split the string into words using space to separate, keep only the first two words.
 function initials(name = "") {
-  const parts = name.trim().split(/\s+/).slice(0, 2);
-  return parts.map(p => p[0]?.toUpperCase() || "").join("");
+  const parts = name.trim().split(/\s+/).slice(0, 2);   //part is an array of two words
+  return parts.map(p => p[0]?.toUpperCase() || "").join("");  //loop over each wordsand take the first char make it upperCase or return an empty string if no letter is found. combine letters into one string
 }
 
 export default function UserCard({ user }) {
   // Try common keys for image & food
-  const img = user.image || user.avatar || user.photo || null;
-  const fav = user.favoriteFood || user.favorite_food || user.favFood || "—";
+  const img = user.image || user.avatar || user.photo || null; //different data sourves use different naming conventions
+  const fav = user.favoriteFood || user.favorite_food || user.favFood || "—"; //camelCase, snake_case, and shortend version
 
   return (
     <Card
@@ -46,6 +48,10 @@ export default function UserCard({ user }) {
         <div>
           <span className="font-medium text-gray-900">Age: </span>
           <span className="text-gray-600">{user.age ?? "—"}</span>
+        </div>
+        <div>
+          <span className="font-medium text-gray-900">Job Title: </span>
+          <span className="text-gray-600">{user.jobTitle}</span>
         </div>
         <div>
           <span className="font-medium text-gray-900">Favorite Food: </span>

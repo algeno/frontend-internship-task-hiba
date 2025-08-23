@@ -1,4 +1,4 @@
-// src/components/ui/card.js
+//Utility: combine class names, removing falsy values (null, undefined, false, "")
 export function classNames(...xs) {
   return xs.filter(Boolean).join(" ");
 }
@@ -6,7 +6,8 @@ export function classNames(...xs) {
 export function Card(props) {
   return (
     <div
-      {...props}
+      {...props}  //make sure the children (img, accent bar, CardHeader, CardContent) are placed inside the <div>.
+      //make sure the <div>` has both: the default card styles plus any extra styles you passed from UserCard
       className={classNames(
         "rounded-2xl bg-white shadow-sm border border-gray-200",
         props.className

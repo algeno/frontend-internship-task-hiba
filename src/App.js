@@ -25,6 +25,7 @@ export default function App() {
     ? users.filter(u => (u.name|| "").toLowerCase().startsWith(query))
     : users;  //if query is empty then it will return the entire list
 
+
   return (
     //min-h-screen: minimum height to the full screen. 
     //bg: background.
